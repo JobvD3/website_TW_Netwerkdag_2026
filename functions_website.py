@@ -19,7 +19,7 @@ def information_student(student_name, student_year):
     """
     df = pd.read_excel("website_tw_nd.xlsx", sheet_name="students")
 
-    df_student = df.loc[df.name == student_name & df.year == student_year]
+    df_student = df.loc[(df.name == student_name) & (df.year == student_year)]
 
     if len(df_student.index) < 1:
         st.error("Student not found")
