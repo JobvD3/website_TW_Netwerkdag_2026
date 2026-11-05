@@ -34,14 +34,14 @@ with st.sidebar:
             if st.button(label="Confirm choices"):
                 confirm = True
 
-        if ("name" != None) and (year != None) and (confirm == True):
+        if (name != None) and (year != None) and (confirm == True):
             st.session_state.student_company = [student_company, name, year]
-        elif ("name" != None) and (year != None) and (confirm == True):
+        elif (name != None) and (year != None) and (confirm == True):
             if student_company == "Student":
                 st.write("Please fill in your name")
             elif student_company == "Company":
                 st.write("Please fill in your company name")
-        elif ("name" not in locals()) and (year == None) and (confirm == True):
+        elif (name != False) and (year == None) and (confirm == True):
             st.write("Please select the year you're in")
 
 
