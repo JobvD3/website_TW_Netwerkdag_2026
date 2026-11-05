@@ -76,9 +76,9 @@ with st.sidebar:
     else:
         st.session_state.student_company = None
 
-    st.title("Applied Mathametics Networkingday 2026")
-    if st.session_state.student_company == None:
-        st.write("Here you will find your schedule for the Applied Mathametics Networkingday 2026")
-        st.header("Please fill in the information in the side bar.")
-    else:
-        information_event(st.session_state.student_company[0], st.session_state.student_company[1], st.session_state.student_company[2])
+st.title("Applied Mathametics Networkingday 2026")
+if st.session_state.student_company == None:
+    st.write("Here you will find your schedule for the Applied Mathametics Networkingday 2026")
+    st.header("Please fill in the information in the side bar.")
+else:
+    information_event(st.session_state.student_company[0], st.session_state.student_company[1], st.session_state.student_company[2])
