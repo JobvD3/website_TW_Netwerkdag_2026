@@ -21,7 +21,8 @@ with st.sidebar:
                                         index=None,
                                         placeholder="Please make a choice")
         if student_company == "Student":
-            name = st.text_input(label="What is your name?")
+            name = st.text_input(label="What is your name?",
+                                 value=None)
             year = st.selectbox(label="What year are you in?",
                                 options=[1,2,3,4],
                                 index= None,
@@ -29,7 +30,8 @@ with st.sidebar:
             if st.button(label="Confirm choices"):
                 confirm = True
         elif student_company == "Company":
-            name = st.text_input(label="What is your company name?")
+            name = st.text_input(label="What is your company name?",
+                                 value=None)
             year = False
             if st.button(label="Confirm choices"):
                 confirm = True
