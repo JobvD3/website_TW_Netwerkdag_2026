@@ -38,7 +38,7 @@ with st.sidebar:
 
         if (name != None) and (year != None) and (confirm == True):
             st.session_state.student_company = [student_company, name, year]
-        elif (name != None) and (year != None) and (confirm == True):
+        elif (name == None) and (year != None) and (confirm == True):
             if student_company == "Student":
                 st.write("Please fill in your name")
             elif student_company == "Company":
