@@ -13,7 +13,7 @@ if "student_company" not in st.session_state:
 with st.sidebar:
     if st.session_state.student_company == None:
         confirm = False
-        
+
         student_company = st.selectbox(label="Are you a student or a company?",
                                         options=["Student", "Company"],
                                         index=None,
@@ -32,8 +32,16 @@ with st.sidebar:
             if st.button(label="Confirm choices"):
                 confirm = True
 
-        if ("name" in locals()) and (year != None):
+        if ("name" in locals()) and (year != None) and (confirm == True):
             st.session_state.student_company = [student_company, name, year]
+        elif ("name" not in locals()) and (year != None) and (confirm == True):
+            if student_company == "Student":
+                st.write("Please fill in your name")
+            elif student_company == "Company":
+                st.write("Please fill in your company name")
+        elif ("name" not in locals()) and (year == None) and (confirm == True):
+            st.write("Please select the year you're in")
+
 
     elif st.session_state.student_company[0] == "Student":
         st.write("Student name:", st.session_state.student_company[1])
