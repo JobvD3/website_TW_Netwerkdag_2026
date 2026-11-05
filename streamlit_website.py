@@ -22,9 +22,11 @@ with st.sidebar:
                                 options=[1,2,3,4],
                                 index= None,
                                 placeholder="Please select your year")
+            st.button(label="Confirm choices")
         elif student_company == "Company":
             name = st.text_input(label="What is your company name?")
             year = False
+            st.button(label="Confirm choices")
 
         if ("name" in locals()) and (year != None):
             st.session_state.student_company = [student_company, name, year]
