@@ -58,15 +58,15 @@ def information_student(student_name, student_year):
             time.write("13:50")
 
         else:
-            activity.write("Walk in:------------------------------------------15:10")
+            activity.write("Walk in:")
             time.write("15:10")
-            activity.write("Introduction:-------------------------------------15:20")
+            activity.write("Introduction:")
             time.write("15:20")
-            activity.write(f"Speed date with {student.speed_date_late1}:------15:35")
+            activity.write(f"Speed date with {student.speed_date_late1}:")
             time.write("15:35")
-            activity.write(f"Speed date with {student.speed_date_late2}:------15:35")
+            activity.write(f"Speed date with {student.speed_date_late2}:")
             time.write("15:50")
-            activity.write(f"Speed date with {student.speed_date_late3}:------15:35")
+            activity.write(f"Speed date with {student.speed_date_late3}:")
             time.write("16:05")
 
 def information_company(company_name):
