@@ -31,7 +31,6 @@ with st.sidebar:
                                 placeholder="Please select your year")
             if st.button(label="Confirm choices"):
                 confirm = True
-                st.rerun()
 
         elif student_company == "Company":
             name = st.text_input(label="What is your company name?",
@@ -39,7 +38,6 @@ with st.sidebar:
             year = False
             if st.button(label="Confirm choices"):
                 confirm = True
-                st.rerun()
 
         if (name != None) and (year != None) and (confirm == True):
             st.session_state.student_company = [student_company, name, year]
