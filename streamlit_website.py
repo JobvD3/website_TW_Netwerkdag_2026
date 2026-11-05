@@ -29,14 +29,14 @@ with st.sidebar:
                                 options=["1","2","3","4"],
                                 index= None,
                                 placeholder="Please select your year")
-            if st.button(label="Confirm choices"):
+            if st.button(label="Press twice to confirm your choices"):
                 confirm = True
 
         elif student_company == "Company":
             name = st.text_input(label="What is your company name?",
                                  value=None)
             year = False
-            if st.button(label="Confirm choices"):
+            if st.button(label="Press twice to confirm your company"):
                 confirm = True
 
         if (name != None) and (year != None) and (confirm == True):
