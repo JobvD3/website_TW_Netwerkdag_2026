@@ -24,7 +24,7 @@ with st.sidebar:
                                 placeholder="Please select your year")
         elif student_company == "Company":
             name = st.text_input(label="What is your company name?")
-            year = None
+            year = False
 
-        if "name" in locals():
+        if ("name" in locals()) and (year != None):
             st.session_state.student_company = [student_company, name, year]
