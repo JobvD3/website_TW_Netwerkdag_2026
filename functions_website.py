@@ -27,7 +27,7 @@ def information_student(student_name, student_year):
     else:
         student = df_student.iloc[0]
 
-        activity, time = st.columns([3,1], border=False)
+        activity, time = st.columns([2,1], border=False)
 
         if student.year in [1,2]:
             activity.write("Walk in:")
