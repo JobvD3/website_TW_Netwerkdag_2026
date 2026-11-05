@@ -10,7 +10,7 @@ if "student_company" not in st.session_state:
 
 
 #Sidebar
-with st.sidebar():
+with st.sidebar:
     if st.session_state.student_company == None:
         student_company = st.selectbox(label="Are you a student or a company?",
                                         options=["Student", "Company"],
