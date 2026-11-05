@@ -19,31 +19,37 @@ def information_student(student_name, student_year):
     """
     df = pd.read_excel("website_tw_nd.xlsx", sheet_name="students")
 
-    student = df.loc[df.name == student_name & df.year == student_year].iloc[0]
+    df_student = df.loc[df.name == student_name & df.year == student_year]
 
-    if student.year in [1,2]:
-        st.write("Walk in: 10:30")
-        st.write("Start-event: 11:00")
-        st.write(f"Speed date with {student.speed_date1}: 11:20")
-        st.write(f"Speed date with {student.speed_date2}: 11:40")
-        st.write(f"Speed date with {student.speed_date3}: 12:10")
-        st.write("Break: 12:20")
-        st.write(f"Speed date with {student.speed_date4}: 12:40")
-        if student.year == 1:
-            st.write("Importance of Networking Presentation: 12:50")
-            st.write("Company market: 13:10")
-        else:
-            st.write("Company market: 12:50")
-        st.write(f"speed date with {student.speed_date5} & pitches: 13:30")
-        st.write("End of event: 13:50")
-
+    if len(df_student.index) < 1:
+        st.error("Student not found")
+    
     else:
-        st.write("Walk in: 15:10")
-        st.write("Introduction: 15:20")
-        st.write(f"Speed date with {student.speed_date_late1}: 15:35")
-        st.write(f"Speed date with {student.speed_date_late2}: 15:35")
-        st.write(f"Speed date with {student.speed_date_late3}: 15:35")
-        st.write(f"Speed date with {student.speed_date_late4}: 15:35")
+        student = df_student.iloc[0]
+
+        if student.year in [1,2]:
+            st.write("Walk in: 10:30")
+            st.write("Start-event: 11:00")
+            st.write(f"Speed date with {student.speed_date1}: 11:20")
+            st.write(f"Speed date with {student.speed_date2}: 11:40")
+            st.write(f"Speed date with {student.speed_date3}: 12:10")
+            st.write("Break: 12:20")
+            st.write(f"Speed date with {student.speed_date4}: 12:40")
+            if student.year == 1:
+                st.write("Importance of Networking Presentation: 12:50")
+                st.write("Company market: 13:10")
+            else:
+                st.write("Company market: 12:50")
+            st.write(f"speed date with {student.speed_date5} & pitches: 13:30")
+            st.write("End of event: 13:50")
+
+        else:
+            st.write("Walk in: 15:10")
+            st.write("Introduction: 15:20")
+            st.write(f"Speed date with {student.speed_date_late1}: 15:35")
+            st.write(f"Speed date with {student.speed_date_late2}: 15:35")
+            st.write(f"Speed date with {student.speed_date_late3}: 15:35")
+            st.write(f"Speed date with {student.speed_date_late4}: 15:35")
 
 def information_company(company_name):
     """
@@ -57,53 +63,59 @@ def information_company(company_name):
     """
     df = pd.read_excel("website_tw_nd.xlsx", sheet_name="companys")
 
-    company = df.loc[df.name == company_name].iloc[0]
+    df_company = df.loc[df.name == company_name].iloc[0]
 
-    if company.first == 1 and company.second == 1:
-        st.write("Setting up: 10:30")
-        st.write("Start of event: 11:00")
-        st.write(f"Speed date with {company.speed_date1}: 11:20")
-        st.write(f"Speed date with {company.speed_date2}: 11:40")
-        st.write(f"Speed date with {company.speed_date3}: 12:10")
-        st.write("Break: 12:20")
-        st.write(f"Speed date with {company.speed_date4}: 12:40")
-        st.write("Company market: 12:50")
-        st.write(f"speed date with {company.speed_date5}: 13:30")
-        st.write("End of first halve: 13:50")
+    if len(df_company.index) < 1:
+        st.error("Company not found")
+    
+    else:
+        company = df_company.iloc[0]
 
-        st.write("Break with Lunch: 14:00")
+        if company.first == 1 and company.second == 1:
+            st.write("Setting up: 10:30")
+            st.write("Start of event: 11:00")
+            st.write(f"Speed date with {company.speed_date1}: 11:20")
+            st.write(f"Speed date with {company.speed_date2}: 11:40")
+            st.write(f"Speed date with {company.speed_date3}: 12:10")
+            st.write("Break: 12:20")
+            st.write(f"Speed date with {company.speed_date4}: 12:40")
+            st.write("Company market: 12:50")
+            st.write(f"speed date with {company.speed_date5}: 13:30")
+            st.write("End of first halve: 13:50")
 
-        st.write("Walk in 3th & 4th years students: 15:10")
-        st.write("Introduction second halve: 15:20")
-        st.write(f"Speed date with {company.speed_date_late1}: 15:35")
-        st.write(f"Speed date with {company.speed_date_late2}: 15:35")
-        st.write(f"Speed date with {company.speed_date_late3}: 15:35")
-        st.write(f"Speed date with {company.speed_date_late4}: 15:35")
-        st.write("Borrel: 16:30")
-        st.write("End of event: 17:30")
+            st.write("Break with Lunch: 14:00")
+
+            st.write("Walk in 3th & 4th years students: 15:10")
+            st.write("Introduction second halve: 15:20")
+            st.write(f"Speed date with {company.speed_date_late1}: 15:35")
+            st.write(f"Speed date with {company.speed_date_late2}: 15:35")
+            st.write(f"Speed date with {company.speed_date_late3}: 15:35")
+            st.write(f"Speed date with {company.speed_date_late4}: 15:35")
+            st.write("Borrel: 16:30")
+            st.write("End of event: 17:30")
 
 
-    elif company.first == 1 and company.second != 1:
-        st.write("Setting up: 10:30")
-        st.write("Start of event: 11:00")
-        st.write(f"Speed date with {company.speed_date1}: 11:20")
-        st.write(f"Speed date with {company.speed_date2}: 11:40")
-        st.write(f"Speed date with {company.speed_date3}: 12:10")
-        st.write("Break: 12:20")
-        st.write(f"Speed date with {company.speed_date4}: 12:40")
-        st.write("Company market: 12:50")
-        st.write(f"speed date with {company.speed_date5}: 13:30")
-        st.write("End of event: 13:50")
-    elif company.first != 1 and company.second == 1:
-        st.write("Setting up: 14:30")
-        st.write("Walk in 3th & 4th years students: 15:10")
-        st.write("Introduction second halve: 15:20")
-        st.write(f"Speed date with {company.speed_date_late1}: 15:35")
-        st.write(f"Speed date with {company.speed_date_late2}: 15:35")
-        st.write(f"Speed date with {company.speed_date_late3}: 15:35")
-        st.write(f"Speed date with {company.speed_date_late4}: 15:35")
-        st.write("Borrel: 16:30")
-        st.write("End of event: 17:30")
+        elif company.first == 1 and company.second != 1:
+            st.write("Setting up: 10:30")
+            st.write("Start of event: 11:00")
+            st.write(f"Speed date with {company.speed_date1}: 11:20")
+            st.write(f"Speed date with {company.speed_date2}: 11:40")
+            st.write(f"Speed date with {company.speed_date3}: 12:10")
+            st.write("Break: 12:20")
+            st.write(f"Speed date with {company.speed_date4}: 12:40")
+            st.write("Company market: 12:50")
+            st.write(f"speed date with {company.speed_date5}: 13:30")
+            st.write("End of event: 13:50")
+        elif company.first != 1 and company.second == 1:
+            st.write("Setting up: 14:30")
+            st.write("Walk in 3th & 4th years students: 15:10")
+            st.write("Introduction second halve: 15:20")
+            st.write(f"Speed date with {company.speed_date_late1}: 15:35")
+            st.write(f"Speed date with {company.speed_date_late2}: 15:35")
+            st.write(f"Speed date with {company.speed_date_late3}: 15:35")
+            st.write(f"Speed date with {company.speed_date_late4}: 15:35")
+            st.write("Borrel: 16:30")
+            st.write("End of event: 17:30")
 
 
 def information_event(student_company, name, year):
