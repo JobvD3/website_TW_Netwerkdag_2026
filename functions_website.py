@@ -7,7 +7,7 @@ import streamlit as st
 
 def information_student(student_name, student_year):
     """
-    This function will make a schedule from the data in website_tw_nd.xlsx.
+    This function will make a schedule from the data in website_tw_nd.xlsx
 
     args:
         student_name: Is the name of the selected student.
