@@ -55,9 +55,15 @@ with st.sidebar:
     elif st.session_state.student_company[0] == "Student":
         st.write("Student name:", st.session_state.student_company[1])
         st.write("School year:", st.session_state.student_company[2])
+        if st.button(label="Change account"):
+            st.session_state.student_company = None
+            st.rerun()
 
     elif st.session_state.student_company[0] == "Company":
         st.write("Company name:", st.session_state.student_company[1])
+        if st.button(label="Change account"):
+            st.session_state.student_company = None
+            st.rerun()
 
     else:
         st.session_state.student_company = None
