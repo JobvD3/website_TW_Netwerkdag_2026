@@ -30,32 +30,53 @@ def information_student(student_name, student_year):
         activity, time = st.columns([0.1,0.1], border=False)
 
         if student.year in [1,2]:
-            activity.write("Walk in:")
-            time.write("10:30")
-            activity.write("Start-event:")
-            time.write("11:00")
-            activity.write(f"Speed date with {student.speed_date1}:")
-            time.write("11:20")
-            activity.write(f"Speed date with {student.speed_date2}:")
-            time.write("11:40")
-            activity.write(f"Speed date with {student.speed_date3}:")
-            time.write("12:10")
-            activity.write("Break:")
-            time.write("12:20")
-            activity.write(f"Speed date with {student.speed_date4}:")
-            time.write("12:40")
+            with st.container(border=True):
+                st.write("Walk in:")
+                st.write("10:30")
+
+            with st.container(border=True):
+                st.write("Start-event:")
+                st.write("11:00")
+
+            with st.container(border=True):
+                st.write(f"Speed date with {student.speed_date1}:")
+                st.write("11:20")
+
+            with st.container(border=True):
+                st.write(f"Speed date with {student.speed_date2}:")
+                st.write("11:40")
+
+            with st.container(border=True):
+                st.write(f"Speed date with {student.speed_date3}:")
+                st.write("12:10")
+
+            with st.container(border=True):
+                st.write("Break:")
+                st.write("12:20")
+
+            with st.container(border=True):
+                st.write(f"Speed date with {student.speed_date4}:")
+                st.write("12:40")
             if student.year == 1:
-                activity.write("Importance of Networking Presentation:")
-                time.write("12:50")
-                activity.write("Company market:")
-                time.write("13:10")
+                with st.container(border=True):
+                    st.write("Importance of Networking Presentation:")
+                    st.write("12:50")
+
+                with st.container(border=True):
+                    st.write("Company market:")
+                    st.write("13:10")
+            
             else:
-                activity.write("Company market:")
-                time.write("12:50")
-            activity.write(f"speed date with {student.speed_date5} & pitches:")
-            time.write("13:30")
-            activity.write("End of event:")
-            time.write("13:50")
+                with st.container(border=True):
+                    st.write("Company market:")
+                    st.write("12:50")
+
+            with st.container(border=True):
+                st.write(f"speed date with {student.speed_date5} & pitches:")
+                st.write("13:30")
+            with st.container(border=True):
+                st.write("End of event:")
+                st.write("13:50")
 
         else:
             activity.write("Walk in:")
