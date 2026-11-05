@@ -77,7 +77,7 @@ def information_company(company_name):
     """
     df = pd.read_excel("website_tw_nd.xlsx", sheet_name="companys")
 
-    df_company = df.loc[df.name == company_name].iloc[0]
+    df_company = df.loc[df.name == company_name]
 
     if len(df_company.index) < 1:
         st.error("Company not found")
