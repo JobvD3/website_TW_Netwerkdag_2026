@@ -48,7 +48,7 @@ with st.sidebar:
         elif student_company == "Student" and confirm == True:
             st.error("Please fill in your name")
             st.error("Please select the year you're in")
-        else:
+        elif confirm == True:
             st.error("Please fill in your company name")
 
 
