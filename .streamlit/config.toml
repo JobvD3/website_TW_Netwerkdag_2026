@@ -1,0 +1,13 @@
+[theme]
+base="light"
+primaryColor="BlueViolet"
+backgroundColor="Floralwhite"
+secondaryBackgroundColor="LightPink"
+baseRadius="full"
+textColor="BlueViolet"
+
+[theme.sidebar]
+backgroundColor="BlueViolet"
+secondaryBackgroundColor="LightPink"
+baseRadius="none"
+textColor="Floralwhite"
