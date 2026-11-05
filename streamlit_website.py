@@ -12,6 +12,8 @@ if "student_company" not in st.session_state:
 #Sidebar
 with st.sidebar:
     if st.session_state.student_company == None:
+        st.title("Fill in to find information about your networkday")
+
         confirm = False
         name = None
         year = None
@@ -29,12 +31,15 @@ with st.sidebar:
                                 placeholder="Please select your year")
             if st.button(label="Confirm choices"):
                 confirm = True
+                st.rerun()
+
         elif student_company == "Company":
             name = st.text_input(label="What is your company name?",
                                  value=None)
             year = False
             if st.button(label="Confirm choices"):
                 confirm = True
+                st.rerun()
 
         if (name != None) and (year != None) and (confirm == True):
             st.session_state.student_company = [student_company, name, year]
@@ -53,6 +58,8 @@ with st.sidebar:
 
 
     elif st.session_state.student_company[0] == "Student":
+        st.title("You are")
+
         st.write("Student name:", st.session_state.student_company[1])
         st.write("School year:", st.session_state.student_company[2])
         if st.button(label="Change account"):
@@ -60,6 +67,8 @@ with st.sidebar:
             st.rerun()
 
     elif st.session_state.student_company[0] == "Company":
+        st.title("Your company is")
+
         st.write("Company name:", st.session_state.student_company[1])
         if st.button(label="Change account"):
             st.session_state.student_company = None
