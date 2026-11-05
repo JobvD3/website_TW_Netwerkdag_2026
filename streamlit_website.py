@@ -28,3 +28,13 @@ with st.sidebar:
 
         if ("name" in locals()) and (year != None):
             st.session_state.student_company = [student_company, name, year]
+
+    elif st.session_state.student_company[0] == "Student":
+        st.write("Student name:", st.session_state.student_company[1])
+        st.write("School year:", st.session_state.student_company[2])
+
+    elif st.session_state.student_company[0] == "Company":
+        st.write("Company name:", st.session_state.student_company[0])
+
+    else:
+        st.session_state.student_company = None
