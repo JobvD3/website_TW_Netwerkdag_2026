@@ -18,9 +18,13 @@ with st.sidebar:
                                         placeholder="Please make a choice")
         if student_company == "Student":
             name = st.text_input(label="What is your name?")
-            year = st.selectbox(label="What year are you in?")
+            year = st.selectbox(label="What year are you in?",
+                                options=[1,2,3,4],
+                                index= None,
+                                placeholder="Please select your year")
         elif student_company == "Company":
             name = st.text_input(label="What is your company name?")
             year = None
 
-        st.session_state.student_company = [student_company, name, year]
+        if name in locals():
+            st.session_state.student_company = [student_company, name, year]
