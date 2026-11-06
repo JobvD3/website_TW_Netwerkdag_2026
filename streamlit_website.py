@@ -4,7 +4,7 @@ Op deze website kunnen studenten en bedrijven vinden waar ze moeten zijn.
 """
 import streamlit as st
 from functions_website import information_event
-from functions_website import information_company
+from functions_website import company_information
 
 #Setup
 if "student_company" not in st.session_state:
@@ -87,4 +87,4 @@ elif st.session_state.student_company[0] == "Student":
         information_event(st.session_state.student_company[0], st.session_state.student_company[1], st.session_state.student_company[2])
 
     with tab2:
-        information_company()
+        company_information()
