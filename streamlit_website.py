@@ -4,6 +4,7 @@ Op deze website kunnen studenten en bedrijven vinden waar ze moeten zijn.
 """
 import streamlit as st
 from functions_website import information_event
+from functions_website import information_company
 
 #Setup
 if "student_company" not in st.session_state:
@@ -80,5 +81,10 @@ st.title("Applied Mathametics Networkingday 2026")
 if st.session_state.student_company == None:
     st.write("Here you will find your schedule for the Applied Mathametics Networkingday 2026")
     st.header("Please fill in the information in the side bar.")
-else:
-    information_event(st.session_state.student_company[0], st.session_state.student_company[1], st.session_state.student_company[2])
+elif st.session_state.student_company[0] == "Student":
+    tab1, tab2 = st.tabs(["Schedule", "Company information"])
+    with tab1:
+        information_event(st.session_state.student_company[0], st.session_state.student_company[1], st.session_state.student_company[2])
+
+    with tab2:
+        information_company()

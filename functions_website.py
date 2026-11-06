@@ -289,3 +289,24 @@ def information_event(student_company, name, year):
     else:
         st.error("Something went wrong please fill your acount information in again.")
 
+def company_information():
+    """
+    This function will make a callabel element in streamlit where students can find information about a company
+    
+    Returns:
+        Streamlit code to show information about the requested company
+    """
+    df = pd.read_excel("Networking Day 2026 Applied Mathematics - Company Registration.xlsx")
+
+    df = df.iloc[:, [6,7]]
+    df.columns = ["name", "information"]
+
+    company = st.selectbox(label="Please select the company that you want to know more about",
+                           options=df["name"],
+                           index=None,
+                           placeholder="Pleace choose a company")
+
+    if company != None:
+        st.title(company)
+
+        st.write(df["information"].loc[df["name"] == company].iloc[0])
